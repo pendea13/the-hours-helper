@@ -1,0 +1,111 @@
+/* import.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3498db; /* Blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for select and upload elements */
+.import-container {
+    background-color: #fff; /* White background for the login container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+/* Style for select dropdown */
+.select {
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+}
+label{
+    color: #27ae60; /* Green text color for the title */
+    font-size: medium;
+}
+h2 {
+    color: #27ae60; /* Green text color for the title */
+}
+/* Style for upload input */
+.upload {
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Style for upload button */
+.upload-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #219d53;
+}
+
+#preview-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#preview-table td, #tasks th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#preview-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#preview-table tr:hover {background-color: #ddd;}
+
+#preview-table th {
+    padding: 12px 9px;
+    text-align: left;
+    background-color: #27ae60;
+    color: white;
+}
+#preview-title {
+    display: none;
+}
+.tooltip-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 36px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 999;
+}
+
+.tooltip i {
+    margin-right: 5px;
+}
+
+.tooltip-container:hover .tooltip {
+    display: block;
+}

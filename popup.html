@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup-container">
+    <div class="logo">
+        <img src="images/icon16.png" class="image">
+    </div>
+    <h1>Task Tracker</h1>
+    <div class="grid-container" id="grid-container">
+        <div class="grid-item">
+            <!-- Project selection -->
+            <label for="project-select">Select Project:</label>
+            <select id="project-select"></select>
+
+            <!-- Activity selection -->
+            <label for="activity-select">Select Activity:</label>
+            <select id="activity-select"></select>
+
+            <!-- Task input -->
+            <label for="task-input">Task:</label>
+            <input type="text" id="task-input">
+        </div>
+        <div class="grid-item">
+            <span id="running-task-info"></span>
+            <!-- Start and stop buttons -->
+            <button id="start-button" class="button">Start</button>
+            <button id="stop-button" class="red-button">Stop</button>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="button-container grid-item-clear">
+            <button id="login-button" class="button">Login</button>
+            <button id="import-button" class="button">Import file</button>
+            <button id="logout-button" class="button">Logout</button>
+        </div>
+        <!-- Jokes section -->
+        <div id="joke-section" class="grid-item-clear">
+            <div class="grid-container">
+                <div class="grid-item-clear">
+                    <h2 style="margin-bottom: 10px">Short Joke:</h2>
+                    <button id="get-joke-button" class="button">Get Joke</button>
+                </div>
+                <div class="grid-item-clear">
+                    <p id="joke-text">Loading a joke...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Other content goes here -->
+<script src="popup.js"></script>
+</body>
+</html>

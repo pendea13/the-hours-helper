@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Import</title>
+    <link rel="stylesheet" href="import.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="import-container">
+    <div style="display: inline-flex">
+        <label for="project-select">Select a Project:</label>
+        <div class="tooltip-container">
+            <i style="margin-left: 20px" class="fa fa-info-circle"></i>
+            <span id="activity-tooltip" class="tooltip">
+            </span>
+        </div>
+    </div>
+    <select id="project-select" class="select"></select>
+
+    <br>
+    <div  style="display: inline-flex">
+        <label for="csv-file">Upload CSV Tasks File:</label>
+        <div class="tooltip-container">
+            <i style="margin-left: 20px" class="fa fa-info-circle"></i>
+            <span class="tooltip">
+             CSV Headers:<br> [ activity_id, task, end_date, end_time, start_date, end_date ]
+        </span>
+        </div>
+    </div>
+    <input type="file" id="csv-file" class="upload">
+    <a href="sample.csv" download="sample.csv">
+        <button>Download Sample CSV</button>
+    </a>
+    <button id="upload-button" class="upload-button">Upload</button>
+    <br>
+    <h2 id="preview-title">Preview Tasks</h2>
+    <table id="preview-table" class="preview-table">
+        <!-- Table headers will be added dynamically -->
+        <thead>
+        <tr>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Table rows will be added dynamically -->
+        </tbody>
+    </table>
+</div>
+<!-- Other content goes here -->
+<script src="import.js"></script>
+</body>
+</html>

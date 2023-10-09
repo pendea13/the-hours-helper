@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "The Hours Helper",
+    "version": "1.0",
+    "description": "This Chrome extension allows you to manage/import tasks, and enjoy a collection of short jokes right from your browser's toolbar.",
+    "permissions": [
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "login/login.html",
+                "login/login.js",
+                "login/login.css"
+            ],
+            "matches": ["<all_urls>"]
+        },
+        {
+            "resources": [
+                "import/import.html",
+                "import/import.js",
+                "import/import.css"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "host_permissions": [
+        "https://thehours.arobs.com/api/*"
+    ]
+}
