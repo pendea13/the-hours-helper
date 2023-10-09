@@ -10,7 +10,7 @@ function populateProjects() {
 
     activityTooltip.innerHTML = 'Activities and Id`s: <br>';
 
-    // Extract projects from userProfile (assuming it's an array of projects)
+    // Extract projects from userProfile
     const projects = userProfile.userAllocations;
 
     // Create and append options to the select dropdown
@@ -58,9 +58,6 @@ function handleFileUpload() {
 
     reader.onload = (event) => {
         const csvData = event.target.result;
-        // Now, csvData contains the content of the uploaded CSV file
-
-        // You can parse and process the CSV data here
         const parsedData = parseCSVData(csvData);
         const requestBody = []
         // Retrieve the authToken from local storage
@@ -90,7 +87,6 @@ function handleFileUpload() {
         });
     };
 
-    // Read the file as text
     reader.readAsText(csvFile);
 }
 
@@ -229,14 +225,8 @@ function populateTable(csvFile) {
 
     reader.onload = (event) => {
         const csvData = event.target.result;
-        // Now, csvData contains the content of the uploaded CSV file
-
-        // You can parse and process the CSV data here
         const parsedData = parseCSVData(csvData);
         const requestBody = []
-
-
-        // Send API requests for each data item
         parsedData.forEach(dataItem => {
             if (dataItem.activity_id) {
                 const project = userProfile.userAllocations.find(project => project.projectId === parseInt(projectId));
@@ -277,6 +267,5 @@ function populateTable(csvFile) {
         previewTable.style.display = 'block';
         previewTitle.style.display = 'block'
     };
-    // Read the file as text
     reader.readAsText(csvFile);
 }

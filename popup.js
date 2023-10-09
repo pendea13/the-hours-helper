@@ -35,7 +35,7 @@ chrome.storage.sync.get('authToken', (data) => {
                             console.error('Error parsing response:', error);
                         });
                 } else {
-                    // Token is not valid, handle accordingly (e.g., show an error message)
+                    // Token is not valid
                     console.log('Token validation failed');
                     document.getElementById('logout-button').style.display = 'none';
                     document.getElementById('import-button').style.display = 'none';
@@ -233,21 +233,21 @@ function populateProjectsAndActivities() {
     projectSelect.innerHTML = '';
     activitySelect.innerHTML = '';
 
-    // Extract projects from userProfile (assuming it's an array of projects)
+    // Extract projects from userProfile
     const projects = userProfile.userAllocations;
 
     // Create and append options to the project select dropdown
     projects.forEach((project, i) => {
         const projectOption = document.createElement('option');
-        projectOption.value = project.projectId; // Use a unique identifier for each project
-        projectOption.textContent = project.projectName; // Display project name
+        projectOption.value = project.projectId;
+        projectOption.textContent = project.projectName;
         if ((runningTask && runningTask.project === project.projectId.toString()) || (!runningTask && i === 0)) {
             projectOption.selected = true;
             // Create and append options to the activity select dropdown
             project.allocationDtos.forEach(activity => {
                 const activityOption = document.createElement('option');
-                activityOption.value = activity.activityId; // Use a unique identifier for each activity
-                activityOption.textContent = activity.activityName; // Display activity name
+                activityOption.value = activity.activityId;
+                activityOption.textContent = activity.activityName;
                 if (runningTask && runningTask.activity === activity.activityId.toString())
                     activityOption.selected = true;
                 activitySelect.appendChild(activityOption);
@@ -295,7 +295,6 @@ document.getElementById('login-button').addEventListener('click', () => {
     chrome.tabs.create({url: 'login/login.html'});
 });
 document.getElementById('import-button').addEventListener('click', () => {
-    // Handle login logic or redirect to the login page
     chrome.tabs.create({url: 'import/import.html'});
 });
 document.getElementById('project-select').addEventListener('change', (event) => {
@@ -305,15 +304,15 @@ document.getElementById('project-select').addEventListener('change', (event) => 
     changeProject(project);
 });
 document.getElementById('task-input').addEventListener('change', (event) => {
-    // Get the selected project from the event
+    // Get the selected task from the event
     const task = event.target.value;
-    // Call the changeProject function with the selected project
+    // Call the changeTask function with the selected task
     changeTask(task);
 });
 document.getElementById('activity-select').addEventListener('change', (event) => {
-    // Get the selected project from the event
+    // Get the selected activity from the event
     const activity = event.target.value;
-    // Call the changeProject function with the selected project
+    // Call the changeActivity function with the selected activity
     changeActivity(activity);
 });
 
@@ -341,7 +340,6 @@ function changeActivity(activity) {
 document.getElementById('logout-button').addEventListener('click', () => {
     // Handle logout logic (clear token from storage)
     chrome.storage.sync.remove('authToken', () => {
-        // After logout, you can choose to hide the "Logout" button
         document.getElementById('logout-button').style.display = 'none';
         document.getElementById('import-button').style.display = 'none';
         document.getElementById('grid-container').style.display = 'none';
