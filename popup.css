@@ -1,7 +1,7 @@
 /* popup.css */
 body {
     font-family: Arial, sans-serif;
-    padding: 60px 6px 6px 6px;
+    padding: 40px 6px 6px 6px;
     display: block;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ body {
     background-color: #219d53;
 }
 .image{
-    height: 40px;
+    height: 24px;
     position: relative;
     display: inline-block;
     vertical-align: middle;
@@ -58,7 +58,7 @@ body {
     position: fixed;
     top: 0;
     text-align: center;
-    padding: 6px;
+    padding: 4px;
 }
 
 .red-button {
@@ -112,15 +112,22 @@ button {
 }
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .grid-item {
-    padding: 20px;
+    padding: 6px;
     font-size: 20px;
     display: grid;
     align-items: center;
 }
 
+.grid-container-clear {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 100%;
+}
 .grid-item-clear {
     display: grid;
     align-items: center;
@@ -128,4 +135,8 @@ button {
 
 h1 {
     color: #27ae60;
+}
+
+.check-label {
+    font-size: 14px;
 }

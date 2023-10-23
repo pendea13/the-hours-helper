@@ -9,9 +9,34 @@
 <body>
 <div class="popup-container">
     <div class="logo">
-        <img src="images/icon16.png" class="image">
+        <img src="images/icon48.png" class="image">
     </div>
     <h1>Task Tracker</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <!-- Location selection -->
+            <label for="door-select">Select Location:</label>
+            <select id="door-select"></select>
+            <div class="grid-container">
+                <label for="clock-start" class="check-label">
+                    Start on task start
+                </label>
+                <input type="checkbox" id="clock-start" name="start">
+            </div>
+            <div class="grid-container">
+                <label for="clock-stop" class="check-label">
+                    Stop on task stop
+                </label>
+                <input type="checkbox" id="clock-stop" name="stop">
+            </div>
+        </div>
+        <div class="grid-item">
+            <span id="running-clock-info"></span>
+            <!-- Start and stop clock buttons -->
+            <button id="clock-start-button" class="button">Start Clock</button>
+            <button id="clock-stop-button" class="red-button">Stop Clock</button>
+        </div>
+    </div>
     <div class="grid-container" id="grid-container">
         <div class="grid-item">
             <!-- Project selection -->
@@ -33,7 +58,7 @@
             <button id="stop-button" class="red-button">Stop</button>
         </div>
     </div>
-    <div class="grid-container">
+    <div class="grid-container-clear">
         <div class="button-container grid-item-clear">
             <button id="login-button" class="button">Login</button>
             <button id="import-button" class="button">Import file</button>
@@ -41,10 +66,10 @@
         </div>
         <!-- Jokes section -->
         <div id="joke-section" class="grid-item-clear">
-            <div class="grid-container">
+            <div class="grid-container-clear">
                 <div class="grid-item-clear">
                     <h2 style="margin-bottom: 10px">Short Joke:</h2>
-                    <button id="get-joke-button" class="button">Get Joke</button>
+                    <button id="get-joke-button" style="width: auto" class="button">Get Joke</button>
                 </div>
                 <div class="grid-item-clear">
                     <p id="joke-text">Loading a joke...</p>

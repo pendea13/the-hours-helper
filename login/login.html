@@ -9,17 +9,25 @@
 <body>
 <div class="login-container">
     <h1>Login</h1>
-    <div class="input-container">
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter your username">
-    </div>
-    <div class="input-container">
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter your password">
-    </div>
-    <div id="error-message" class="error-message"></div>
-    <button id="login-button" class="login-button">Login</button>
-    <script src="login.js"></script>
+    <form id="login-form">
+        <div class="input-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autocomplete="username" placeholder="Enter your username">
+        </div>
+        <div class="input-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password">
+        </div>
+        <div class="input-container" style="display: inline-flex">
+            <label for="save-credentials" style="margin-top: 5px">Remember Me:</label>
+            <input type="checkbox" id="save-credentials" name="save-credentials">
+            <label for="auto-login" style="margin-left: 6px; margin-top: 5px">Auto Login:</label>
+            <input type="checkbox" id="auto-login" name="auto-login">
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <button type="button" id="login-button" class="login-button">Login</button>
+        <script src="login.js"></script>
+    </form>
 </div>
 </body>
 </html>

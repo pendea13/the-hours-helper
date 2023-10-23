@@ -24,6 +24,7 @@ h1 {
 
 .input-container {
     margin: 10px 0;
+    text-align: left;
 }
 
 label {
@@ -34,7 +35,6 @@ label {
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc; /* Light gray border */
