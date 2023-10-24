@@ -66,7 +66,6 @@ function handleFileUpload() {
 
             // Send API requests for each data item
             const project = userProfile.userAllocations.find(project => project.projectId === parseInt(projectId));
-            console.log(project.allocationDtos)
             parsedData.forEach(dataItem => {
                 if (dataItem.activity_id) {
                     console.log(dataItem.activity_id)

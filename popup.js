@@ -8,7 +8,7 @@ let authToken = null;
 let selectedProject = null;
 let selectedActivity = null;
 let userAccessDoors = null;
-let accessDoorsPreferences = {doorId: null, start: false, stop: false};
+let accessDoorsPreferences = {doorId: null, start: false, stop: false, isRunning: false};
 
 // Check if the authToken is stored
 function checkAuthToken() {
@@ -131,7 +131,6 @@ function toggleClock(start = false) {
         doorId: parseInt(accessDoorsPreferences.doorId),
         ...date
     }
-    console.log(payload);
     // Send a POST request to the API
     fetch('https://thehours.arobs.com/api/userTimeTrackings', {
         method: 'POST',
@@ -222,7 +221,7 @@ function startTask() {
     const project = document.getElementById('project-select').value;
     const activity = document.getElementById('activity-select').value;
     const task = document.getElementById('task-input').value;
-    if (accessDoorsPreferences.start) {
+    if (accessDoorsPreferences.start && !accessDoorsPreferences.isRunning) {
         toggleClock(true);
     }
 
@@ -274,7 +273,7 @@ function stopTask() {
             task: runningTask.task,
             employeeId: userProfile.employeeId
         }]);
-        if (accessDoorsPreferences.stop) {
+        if (accessDoorsPreferences.stop && accessDoorsPreferences.isRunning) {
             toggleClock();
         }
         // Clear the running task state
@@ -442,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedActivity = data.storedActivity;
         savedCredentials = data.savedCredentials;
         userAccessDoors = data.userAccessDoors;
-        accessDoorsPreferences = data.accessDoorsPreferences ?? {doorId: null, start: false, stop: false};
+        accessDoorsPreferences = data.accessDoorsPreferences ?? {doorId: null, start: false, stop: false, isRunning: false};
         checkAuthToken();
         if (!userAccessDoors?.length) {
             getAccessDoors();
@@ -594,6 +593,7 @@ function getRunningClock() {
                         const activeDoor = runningClock.clocks?.find(c => c.exitClocking?.timeTrackingId === 0) ?? null;
                         if (activeDoor) {
                             accessDoorsPreferences.doorId = activeDoor.exitClocking.doorId.toString();
+                            accessDoorsPreferences.isRunning = true;
                             chrome.storage.sync.set({accessDoorsPreferences});
                         }
                         populateDoors();
