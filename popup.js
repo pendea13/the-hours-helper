@@ -17,6 +17,7 @@ function checkAuthToken() {
         document.getElementById('logout-button').style.display = 'block';
         document.getElementById('import-button').style.display = 'block';
         document.getElementById('grid-container').style.display = 'grid';
+        document.getElementById('clock-running').style.display = 'grid';
         document.getElementById('joke-section').style.display = 'grid';
         document.getElementById('login-button').style.display = 'none';
 
@@ -63,6 +64,7 @@ function isLoggedOut() {
     document.getElementById('import-button').style.display = 'none';
     document.getElementById('grid-container').style.display = 'none';
     document.getElementById('joke-section').style.display = 'none';
+    document.getElementById('clock-running').style.display = 'none';
     document.getElementById('login-button').style.display = 'block';
     if (savedCredentials?.autoLogin) {
         savedCredentials.autoLogin = false;
