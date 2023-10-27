@@ -17,7 +17,7 @@ function checkAuthToken() {
         document.getElementById('logout-button').style.display = 'block';
         document.getElementById('import-button').style.display = 'block';
         document.getElementById('grid-container').style.display = 'grid';
-        document.getElementById('clock-running').style.display = 'grid';
+        document.getElementById('clock-running').style.display = 'block';
         document.getElementById('joke-section').style.display = 'grid';
         document.getElementById('login-button').style.display = 'none';
 
@@ -157,6 +157,16 @@ function toggleClock(start = false) {
         });
 
 }
+// Show the loading overlay
+function showLoadingOverlay() {
+    document.getElementById("loading-overlay").style.display = "block";
+}
+
+// Hide the loading overlay
+function hideLoadingOverlay() {
+    document.getElementById("loading-overlay").style.display = "none";
+}
+
 
 // Function to store the running task in Chrome storage
 function storeRunningTaskInStorage() {
@@ -580,6 +590,7 @@ function getAccessDoors() {
 }
 
 function getRunningClock() {
+    showLoadingOverlay()
     fetch('https://thehours.arobs.com/api/today', {
         method: 'GET',
         headers: {
@@ -596,10 +607,13 @@ function getRunningClock() {
                         if (activeDoor) {
                             accessDoorsPreferences.doorId = activeDoor.exitClocking.doorId.toString();
                             accessDoorsPreferences.isRunning = true;
-                            chrome.storage.sync.set({accessDoorsPreferences});
+                        } else {
+                            accessDoorsPreferences.isRunning = false;
                         }
+                        chrome.storage.sync.set({accessDoorsPreferences});
                         populateDoors();
                         updateRunningClockUI();
+                        hideLoadingOverlay();
                     })
                     .catch(error => {
                         console.error('Error parsing response:', error);

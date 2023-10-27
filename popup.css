@@ -20,6 +20,45 @@ body {
     align-items: center;
     justify-content: center;
 }
+.content {
+    /* Your content styles */
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.loading-overlay {
+    /* Overlay styles */
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.loader {
+    /* Loading spinner styles (you can use an actual loader image or animation) */
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Container for buttons */
 .button-container {
     display: inline-flex;
@@ -44,7 +83,8 @@ body {
 .button:hover {
     background-color: #219d53;
 }
-.image{
+
+.image {
     height: 24px;
     position: relative;
     display: inline-block;
@@ -52,6 +92,7 @@ body {
     max-width: 100%;
     background-color: transparent;
 }
+
 .logo {
     background-color: #0b111d;
     width: 100%;
@@ -59,6 +100,30 @@ body {
     top: 0;
     text-align: center;
     padding: 4px;
+    transform: translate(0, 0);
+    transition: transform .2s ease-in-out;
+}
+
+.logo:hover {
+    transform: translate(0, 6px) scale(1.5);
+}
+
+a[href="https://ko-fi.com/pendea"] {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.donate {
+    transform: translate(0, 0);
+    transition: transform .2s ease-in-out;
+}
+
+.donate:hover {
+    transform: translate(-6px, 6px) scale(1.5);
 }
 
 .red-button {
@@ -96,6 +161,10 @@ body {
     text-align: left;
 }
 
+.w-auto {
+    width: auto;
+}
+
 button {
     padding: 10px 20px;
     font-size: 14px;
@@ -110,12 +179,14 @@ button {
     font-size: 16px;
     font-weight: bold;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: 50% 50%;
     width: 100%;
     margin-bottom: 10px;
 }
+
 .grid-item {
     padding: 6px;
     font-size: 20px;
@@ -128,6 +199,7 @@ button {
     grid-template-columns: 30% 70%;
     width: 100%;
 }
+
 .grid-item-clear {
     display: grid;
     align-items: center;

@@ -9,34 +9,43 @@
 <body>
 <div class="popup-container">
     <div class="logo">
-        <img src="images/icon48.png" class="image">
+        <img src="images/icon48.png" class="image" alt="clock" >
     </div>
+    <a href="https://ko-fi.com/pendea" target="_blank" rel="noopener">
+        <img class="donate image" src="https://storage.ko-fi.com/cdn/nav-logo-stroke.png" alt="Buy me a coffee">
+    </a>
     <h1>Task Tracker</h1>
-    <div class="grid-container" id="clock-running">
-        <div class="grid-item">
-            <!-- Location selection -->
-            <label for="door-select">Select Location:</label>
-            <select id="door-select"></select>
-            <div class="grid-container">
-                <label for="clock-start" class="check-label">
-                    Start on task start
-                </label>
-                <input type="checkbox" id="clock-start" name="start">
+    <div id="clock-running" class="content">
+        <div class="grid-container">
+            <div class="grid-item">
+                <!-- Location selection -->
+                <label for="door-select">Select Location:</label>
+                <select id="door-select"></select>
+                <div class="grid-container">
+                    <label for="clock-start" class="check-label">
+                        Start on task start
+                    </label>
+                    <input type="checkbox" id="clock-start" name="start">
+                </div>
+                <div class="grid-container">
+                    <label for="clock-stop" class="check-label">
+                        Stop on task stop
+                    </label>
+                    <input type="checkbox" id="clock-stop" name="stop">
+                </div>
             </div>
-            <div class="grid-container">
-                <label for="clock-stop" class="check-label">
-                    Stop on task stop
-                </label>
-                <input type="checkbox" id="clock-stop" name="stop">
+            <div class="grid-item">
+                <span id="running-clock-info"></span>
+                <!-- Start and stop clock buttons -->
+                <button id="clock-start-button" class="button w-auto">Start Clock</button>
+                <button id="clock-stop-button" class="red-button">Stop Clock</button>
             </div>
         </div>
-        <div class="grid-item">
-            <span id="running-clock-info"></span>
-            <!-- Start and stop clock buttons -->
-            <button id="clock-start-button" class="button">Start Clock</button>
-            <button id="clock-stop-button" class="red-button">Stop Clock</button>
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loader"></div>
         </div>
     </div>
+
     <div class="grid-container" id="grid-container">
         <div class="grid-item">
             <!-- Project selection -->
@@ -54,13 +63,12 @@
         <div class="grid-item">
             <span id="running-task-info"></span>
             <!-- Start and stop buttons -->
-            <button id="start-button" class="button">Start</button>
+            <button id="start-button" class="button w-auto">Start</button>
             <button id="stop-button" class="red-button">Stop</button>
         </div>
     </div>
     <div class="grid-container-clear">
         <div class="button-container grid-item-clear">
-            <button id="login-button" class="button">Login</button>
             <button id="import-button" class="button">Import file</button>
             <button id="logout-button" class="button">Logout</button>
         </div>
@@ -77,6 +85,7 @@
             </div>
         </div>
     </div>
+    <button id="login-button" class="button">Login</button>
 
 </div>
 <script src="popup.js"></script>
